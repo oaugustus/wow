@@ -1,0 +1,9 @@
+Default:
+  data_list_config:
+    filter_mode: 'remote'
+    auto_load: false
+    adapter: 'grid'
+    adapter_config:
+      list_config:
+        view_config:
+          force_fit: true

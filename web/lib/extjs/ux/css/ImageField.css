@@ -1,0 +1,45 @@
+/* 
+    Document   : ImageField.css
+    Created on : 27/09/2010, 12:03:11
+    Author     : Otávio
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.image-field-container{
+    border: dashed 1px #999;
+    position: relative;
+}
+
+.image-field-container table{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.image-field-container td{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align: center;
+    background-image: url(../images/empty-image.png) !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font:12px tahoma,arial,helvetica,sans-serif;
+}
+
+.image-field-container td .title{
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 22px;
+    margin-top: -30px;
+}
+
+.image-field-container td img{
+    z-index: 1;
+    border: none;
+    top: 0px;
+}

@@ -1,0 +1,15 @@
+clear();
+// adiciona a API
+Ext.Direct.addProvider(Ext.app.REMOTING_API);
+
+// testa função index
+clear();
+Ext.app.User.index({},function(r){
+  console.debug(r);
+});
+
+// testa função save
+clear();
+Ext.app.User.save({username: "Cristiane",password:"543"},function(r){
+  console.info(r);
+});

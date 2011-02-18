@@ -1,0 +1,12 @@
+Default:
+  - name: default-view
+    description: Visualizar default
+  -
+    name: default-create
+    description: Criar default
+  -
+    name: default-edit
+    description: Editar default
+  -
+    name: default-remove
+    description: Excluir default

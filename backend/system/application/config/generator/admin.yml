@@ -1,0 +1,80 @@
+title: Administração
+description: Módulos de administração do sistema
+view_order: 1
+packages:
+  UMS:
+    title: Gerenciamento de Usuários
+    description: Módulos de gerenciamento de usuários
+    modules:
+      User:
+        title: Usuários
+        view_order: 1
+        directAction: `Ext.app.User`
+        icon_class: user-icon
+        description: Módulo de gerenciamento de usuário
+        actions:
+          - action: create
+          - action: edit
+          - action: remove
+        fields:
+          - name: id
+          - name: fullname
+          - name: login
+          - name: pass
+          - name: group_id
+          - name: group
+          - name: active
+        data_list_config:
+          title: Usuários
+          columns:
+            - data_index: fullname
+              header: Nome
+              filterable: true
+            - data_index: group
+              header: Grupo
+              filterable: true
+              filter_index: g.name
+            - data_index: login
+              header: Login
+              filterable: true
+            - data_index: active
+              header: Ativo
+              renderer: `Ext.app.util.renderer.renderActive`
+        data_form_config:
+          ftype: user-form
+          width: 416
+          create_config:
+            title: Novo usuário
+          edit_config:
+            title: Editando usuário
+      Group:
+        title: Grupos de usuários
+        icon_class: group-icon
+        view_order: 2
+        directAction: `Ext.app.Group`
+        actions:
+          - action: create
+          - action: edit
+          - action: remove
+        fields:
+          - name: id
+          - name: name
+          - name: description
+          - name: active
+        data_list_config:
+          title: Grupos de usuários
+          columns:
+            - data_index: name
+              header: Grupo
+              filterable: true
+            - data_index: active
+              header: Ativo
+              renderer: `Ext.app.util.renderer.renderActive`
+        data_form_config:
+          ftype: group-form
+          width: 416
+          create_config:
+            title: Novo grupo
+          edit_config:
+            title: Editando grupo
+            title_field: name        

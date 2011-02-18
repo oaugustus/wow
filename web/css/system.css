@@ -1,0 +1,33 @@
+body { 
+    background-color: #266ACF;
+    background-image: url(../images/wallpaper.jpg) !important;
+    background-repeat: no-repeat;
+}
+
+/* User icon*/
+.user-icon{
+    background-image: url(../images/user.png) !important;
+}
+
+/* Logged user icon */
+.loggeduser-icon{
+    background-image: url(../images/loggeduser.png) !important;
+}
+
+/* Group icon*/
+.group-icon{
+    background-image: url(../images/users.png) !important;
+}
+
+/* Logout icon*/
+.exit-icon{
+    background-image: url(../images/exit.png) !important;
+}
+
+/* Fix ExtJS IE8 bug*/
+.x-form-text, .ext-ie .x-form-text, .ext-ie .x-form-file {
+height:22px;
+line-height:20px;
+margin: 0px 0px;
+vertical-align:middle;
+}

@@ -1,0 +1,240 @@
+{
+	"name": "wow.xds",
+	"projectId": "931E0A84-DD93-4176-8610-8B597C45D0F7",
+	"settings": {
+		"urlPrefix": "http://localhost/ciwow/backend/",
+		"directAPI": "http://localhost/ciwow/backend/index.php/direct/getAPI/",
+		"spacesToIndent": "4",
+		"codeGenFormat": "Class",
+		"extPath": "http://extjs.cachefly.net/ext-3.2.1/",
+		"exportPath": ".",
+		"lineEnding": "CRLF"
+	},
+	"xdsVersion": "xds-1.0.2.11",
+	"components": [
+		{
+			"id": "MyForm",
+			"cid": "form",
+			"jsClass": "UserForm",
+			"snapToGrid": 10,
+			"userConfig": {
+				"title": "-ext-undefined-",
+				"width": 400,
+				"height": 250,
+				"padding": "10px;",
+				"border": false,
+				"autoHeight": true,
+				"bodyStyle": ""
+			},
+			"userXType": "user-form",
+			"cn": [
+				{
+					"id": "MyTextField",
+					"cid": "textfield",
+					"jsClass": "MyTextField",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Nome",
+						"anchor": "100%",
+						"name": "fullname",
+						"allowBlank": false
+					}
+				},
+				{
+					"id": "MyTextField1",
+					"cid": "textfield",
+					"jsClass": "MyTextField",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Login",
+						"anchor": "100%",
+						"name": "login",
+						"allowBlank": false
+					}
+				},
+				{
+					"id": "MyTextField2",
+					"cid": "textfield",
+					"jsClass": "MyTextField",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Senha",
+						"anchor": "100%",
+						"name": "pass",
+						"allowBlank": false,
+						"inputType": "password"
+					}
+				},
+				{
+					"id": "MyCombo",
+					"cid": "combobox",
+					"jsClass": "MyCombo",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Grupo",
+						"anchor": "100%",
+						"hiddenName": "group_id",
+						"name": "group_id",
+						"displayField": "name",
+						"valueField": "id",
+						"triggerAction": "all",
+						"autoRef": "cmbGrupo",
+						"store": "GroupStore"
+					}
+				},
+				{
+					"id": "MyCheckbox1",
+					"cid": "checkbox",
+					"jsClass": "MyCheckbox1",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Label",
+						"boxLabel": "Este usuário está ativo",
+						"anchor": "100%",
+						"hideLabel": true,
+						"name": "active",
+						"autoRef": "ckActive"
+					}
+				}
+			]
+		},
+		{
+			"id": "MyForm2",
+			"cid": "form",
+			"jsClass": "GroupForm",
+			"snapToGrid": 10,
+			"userConfig": {
+				"title": "-ext-undefined-",
+				"width": 400,
+				"height": 453,
+				"padding": 10,
+				"border": false,
+				"labelWidth": 70
+			},
+			"userXType": "group-form",
+			"cn": [
+				{
+					"id": "MyTextField7",
+					"cid": "textfield",
+					"jsClass": "MyTextField7",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Nome",
+						"anchor": "100%",
+						"name": "name",
+						"allowBlank": false
+					}
+				},
+				{
+					"id": "MyTextField8",
+					"cid": "textfield",
+					"jsClass": "MyTextField8",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Descrição",
+						"anchor": "100%",
+						"name": "description"
+					}
+				},
+				{
+					"id": "MyCheckbox",
+					"cid": "checkbox",
+					"jsClass": "MyCheckbox",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Label",
+						"boxLabel": "Este grupo está ativo",
+						"anchor": "100%",
+						"hideLabel": true,
+						"name": "active",
+						"autoRef": "ckActive"
+					}
+				},
+				{
+					"id": "MyTreePanel",
+					"cid": "treepanel",
+					"jsClass": "MyTreePanel",
+					"snapToGrid": 10,
+					"userConfig": {
+						"title": "Permissões",
+						"height": 358,
+						"autoRef": "treePermission",
+						"rootVisible": false,
+						"autoScroll": true
+					},
+					"cn": [
+						{
+							"id": "MyAsyncTreeNode",
+							"cid": "asynctreenode",
+							"jsClass": "MyAsyncTreeNode",
+							"dock": "root",
+							"snapToGrid": 10,
+							"userConfig": {
+								"text": "root",
+								"id": "root",
+								"expanded": true
+							}
+						},
+						{
+							"id": "MyTreeLoader",
+							"cid": "treeloader",
+							"jsClass": "MyTreeLoader",
+							"dock": "loader",
+							"snapToGrid": 10,
+							"userConfig": {
+								"paramsAsHash": true,
+								"requestMethod": "POST"
+							}
+						}
+					]
+				},
+				{
+					"id": "MyHiddenField",
+					"cid": "hidden",
+					"jsClass": "MyHiddenField",
+					"snapToGrid": 10,
+					"userConfig": {
+						"fieldLabel": "Label",
+						"anchor": "100%",
+						"name": "id",
+						"autoRef": "edtId"
+					}
+				}
+			]
+		}
+	],
+	"stores": [
+		{
+			"id": "MyStore",
+			"cid": "directstore",
+			"jsClass": "GroupStore",
+			"snapToGrid": 10,
+			"userConfig": {
+				"storeId": "GroupStore",
+				"root": "records",
+				"directFn": "Ext.app.Group.index"
+			},
+			"userXType": "group-store",
+			"cn": [
+				{
+					"id": "MyField",
+					"cid": "datafield",
+					"jsClass": "MyField",
+					"snapToGrid": 10,
+					"userConfig": {
+						"name": "id"
+					}
+				},
+				{
+					"id": "MyField1",
+					"cid": "datafield",
+					"jsClass": "MyField1",
+					"snapToGrid": 10,
+					"userConfig": {
+						"name": "name"
+					}
+				}
+			]
+		}
+	]
+}

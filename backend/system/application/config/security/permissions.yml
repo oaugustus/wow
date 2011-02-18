@@ -1,0 +1,28 @@
+admin:
+  UMS:
+    User:
+      -
+        name: user-view
+        description: 'Visualizar usuários'
+      -
+        name: user-create
+        description: 'Criar usuários'
+      -
+        name: user-edit
+        description: 'Editar usuários'
+      -
+        name: user-remove
+        description: 'Excluir usuários'
+    Group:
+      -
+        name: group-view
+        description: 'Visualizar grupos de usuários'
+      -
+        name: group-create
+        description: 'Criar grupos de usuários'
+      -
+        name: group-edit
+        description: 'Editar grupos de usuários'
+      -
+        name: group-remove
+        description: 'Excluir grupos de usuários'

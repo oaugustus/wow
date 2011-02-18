@@ -1,0 +1,32 @@
+/* 
+    Document   : actions
+    Created on : 16/02/2010, 13:46:17
+    Author     : Otavio
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.wow-save{
+    background-image: url(../images/save.png) !important;
+}
+
+.wow-create{
+    background-image: url(../images/create.png) !important;
+}
+
+.wow-edit{
+    background-image: url(../images/edit.png) !important;
+}
+
+.wow-delete{
+    background-image: url(../images/delete.png) !important;
+}
+
+.wow-none{
+    background-image: none;
+}

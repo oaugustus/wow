@@ -1,0 +1,11 @@
+.codemirror-iframe {
+	background: white;
+	color: black;
+}
+
+.CodeMirror-line-numbers {
+	font-size: 10pt;
+	margin: 0.4em;
+	font-family: monospace;
+	text-align: right;
+}

@@ -1,0 +1,12 @@
+Group:
+  Group_1:
+    name: Administrador
+    description: 'Administrador do sistema'
+    active: '1'
+User:
+  User_3:
+    fullname: 'Administrador'
+    login: 'admin'
+    pass: '202cb962ac59075b964b07152d234b70'
+    active: '1'
+    Group: Group_1

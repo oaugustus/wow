@@ -1,0 +1,322 @@
+connection: main
+Application:
+  tableName: application
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    view_order:
+      type: integer(8)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    active:
+      type: integer(1)
+      fixed: 0
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
+  relations:
+    Package:
+      local: id
+      foreign: application_id
+      type: many
+Group:
+  tableName: group
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    active:
+      type: integer(1)
+      fixed: 0
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
+  relations:
+    Privilege:
+      local: id
+      foreign: group_id
+      type: many
+      cascade: [delete]
+    User:
+      local: id
+      foreign: group_id
+      type: many
+Module:
+  tableName: module
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    view_order:
+      type: integer(8)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    icon_class:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    active:
+      type: integer(1)
+      fixed: 0
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
+    package_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Package:
+      local: package_id
+      foreign: id
+      type: one
+    Permission:
+      local: id
+      foreign: module_id
+      type: many
+      cascade: [delete]
+Package:
+  tableName: package
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    view_order:
+      type: integer(8)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    name:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    application_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Application:
+      local: application_id
+      foreign: id
+      type: one
+    Module:
+      local: id
+      foreign: package_id
+      type: many
+Permission:
+  tableName: permission
+  actAs: [NestedSet]
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    module_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Module:
+      local: module_id
+      foreign: id
+      type: one
+    Privilege:
+      local: id
+      foreign: permission_id
+      type: many
+      cascade: [delete]
+Privilege:
+  tableName: privilege
+  columns:
+    group_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: false
+    permission_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: false
+  relations:
+    Group:
+      local: group_id
+      foreign: id
+      type: one
+    Permission:
+      local: permission_id
+      foreign: id
+      type: one
+User:
+  tableName: user
+  columns:
+    id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: true
+      autoincrement: true
+    fullname:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    login:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    pass:
+      type: string(255)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    active:
+      type: integer(1)
+      fixed: 0
+      unsigned: false
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
+    group_id:
+      type: integer(4)
+      fixed: 0
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Group:
+      local: group_id
+      foreign: id
+      type: one
