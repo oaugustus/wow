@@ -2,7 +2,7 @@
 
 // define models paths, add your paths here
 $_models_paths = array(
-					'models/wow'
+					'models'
 					);
 
 /* End of file models_paths.php */
